@@ -78,7 +78,7 @@ db.collection("teams")
 
 //ronaldo is top scorer
 db.collection("teams")
-  .where("Top Scorers", "array-contains", "Ronaldo")
+  .where("Country", "==", "Spain")
   .get()
   .then((data) => {
     let docs = data.docs;
@@ -88,7 +88,7 @@ db.collection("teams")
   });
 
 db.collection("teams")
-  .where("Top Scorers", "array-contains-any", ["Ronaldo", "Maradona", "Messi"])
+  .where("Country", "not in", ["Spain", "England"])
   .get()
   .then((data) => {
     let docs = data.docs;
