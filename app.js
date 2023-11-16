@@ -41,8 +41,9 @@ db.collection("teams")
     });
   });
 
+//not in spain or england
 db.collection("teams")
-  .where("Country", "==", "Spain")
+  .where("Country", "not-in", ["Spain", "England"])
   .get()
   .then((data) => {
     let docs = data.docs;
@@ -51,9 +52,10 @@ db.collection("teams")
     });
   });
 
-//not in spain or england
+//teams in spain w more than 700 mil fans
 db.collection("teams")
-  .where("Country", "not in", ["Spain", "England"])
+  .where("Country", "!=", "Spain")
+  .where("Fans (million)", ">", 700)
   .get()
   .then((data) => {
     let docs = data.docs;
