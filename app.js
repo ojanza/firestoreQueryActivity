@@ -76,25 +76,25 @@ db.collection("teams")
   });
 
 // // //6 teams in spain w more than 700 mil fans
-// db.collection("teams")
-//   .where("Country", "!=", "Spain")
-//   .where("Fans (million)", ">", 700)
-//   .get()
-//   .then((data) => {
-//document.querySelector("#answers").innerHTML += `Question 6`;
-//     let docs = data.docs;
-//     docs.forEach((d) => {
-//       console.log(d.data());
-// document.querySelector("#answers").innerHTML += `<p> ${
-//     d.data().Name
-//   }</p>`;
-//     });
-//   });
+db.collection("Teams")
+  .where("Country", "==", "Spain")
+  .where("Fans", ">", 700)
+  .get()
+  .then((data) => {
+    document.querySelector("#answers").innerHTML += `Question 6`;
+    let docs = data.docs;
+    docs.forEach((d) => {
+      console.log(d.data().team);
+      document.querySelector("#answers").innerHTML += `<p> ${
+        d.data().Name
+      }</p>`;
+    });
+  });
 
 //7
 db.collection("teams")
-  .where("Fans (million)", ">", 500)
-  .where("Fans (million)", "<", 600)
+  .where("Fans", ">", 500)
+  .where("Fans", "<", 600)
   .get()
   .then((data) => {
     document.querySelector("#answers").innerHTML += `Question 7`;
