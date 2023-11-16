@@ -76,15 +76,16 @@ db.collection("teams")
   });
 
 // // //6 teams in spain w more than 700 mil fans
-db.collection("Teams")
+db.collection("teams")
   .where("Country", "==", "Spain")
   .where("Fans", ">", 700)
   .get()
   .then((data) => {
+
     document.querySelector("#answers").innerHTML += `Question 6`;
     let docs = data.docs;
     docs.forEach((d) => {
-      console.log(d.data().team);
+      console.log(d.data());
       document.querySelector("#answers").innerHTML += `<p> ${
         d.data().Name
       }</p>`;
