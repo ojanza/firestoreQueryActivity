@@ -137,3 +137,70 @@ db.collection("teams")
       }</p>`;
     });
   });
+
+//Part 2 
+//update real madrid
+db.collection('teams').doc('yQURA1l52CRH3b0AOC2v').update({
+  "Fans": 811,
+  "Name": "Real Madrid FC"
+})
+
+//update barcelona
+db.collection('teams').doc('yVV7xQFmbGzgo7Yh1gEJ').update({
+  "Fans": 747,
+  "Name": "FC Barcelona"
+})
+
+//update real madrid 
+db.collection('teams').doc('yQURA1l52CRH3b0AOC2v').update({
+
+  "Top Scorers": firebase.firestore.FieldValue.arrayRemove("Hazard"),
+
+})
+db.collection('teams').doc('yQURA1l52CRH3b0AOC2v').update({
+
+  "Top Scorers": firebase.firestore.FieldValue.arrayUnion("Crispo"),
+
+
+})
+
+//update barcelona
+db.collection('teams').doc('yVV7xQFmbGzgo7Yh1gEJ').update({
+
+  "Top Scorers": firebase.firestore.FieldValue.arrayUnion("Deco")
+
+
+})
+
+db.collection('teams').doc('yVV7xQFmbGzgo7Yh1gEJ').update({
+
+  "Top Scorers": firebase.firestore.FieldValue.arrayRemove("Puyol")
+
+})
+
+//update real madrid
+db.collection('teams').doc('yQURA1l52CRH3b0AOC2v').update({
+  color: {
+    home: "White",
+    away: "Black"
+  }
+})
+//update barcelona
+db.collection('teams').doc('yVV7xQFmbGzgo7Yh1gEJ').update({
+  color: {
+    home: "Red",
+    away: "Gold"
+  }
+})
+
+
+//
+//update real madrid
+db.collection('teams').doc('yQURA1l52CRH3b0AOC2v').update({
+  "color.away": "purple"
+})
+
+//update barcelona
+db.collection('teams').doc('yVV7xQFmbGzgo7Yh1gEJ').update({
+  "color.away": "pink"
+})
